@@ -3,7 +3,7 @@
 default: tests
 
 unit_tests: ## Run all unit tests defined in this project
-	export PATH=tools/:$$PATH;export PYTHONDONTWRITEBYTECODE=1;pytest -v -p no:cacheprovider
+	export PATH=tools/:$$PATH;export PYTHONDONTWRITEBYTECODE=1;pytest -v -p no:cacheprovider --cov dvo_extractor/
 
 coverage:	unit_tests ## Calculate unit test code coverage for the whole repository
 	coverage report --fail-under=70
