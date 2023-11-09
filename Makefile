@@ -5,11 +5,11 @@ default: tests
 unit_tests: ## Run all unit tests defined in this project
 	export PATH=tools/:$$PATH;export PYTHONDONTWRITEBYTECODE=1;pytest -v -p no:cacheprovider
 
-coverage: ## Calculate unit test code coverage for the whole repository
-	export PATH=tools/:$$PATH;export PYTHONDONTWRITEBYTECODE=1;pytest -v -p no:cacheprovider --cov features/
+coverage:	unit_tests ## Calculate unit test code coverage for the whole repository
+	coverage report --fail-under=70
 
 coverage-report: ## Generate HTML pages with unit test code coverage report
-	export PATH=tools/:$$PATH;export PYTHONDONTWRITEBYTECODE=1;pytest -v -p no:cacheprovider --cov features/ --cov-report=html
+	export PATH=tools/:$$PATH;export PYTHONDONTWRITEBYTECODE=1;pytest -v -p no:cacheprovider --cov dvo_extractor/ --cov-report=html
 
 style:	code-style docs-style ## Perform all style checks
 
