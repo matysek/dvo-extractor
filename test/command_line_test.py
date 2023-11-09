@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Module containing unit tests for the `Consumer` class."""
+"""Command line flags unit tests."""
+
 import sys
 import pytest
 
