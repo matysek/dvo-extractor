@@ -17,7 +17,6 @@
 import argparse
 import logging
 import sys
-import os
 
 
 def parse_args():
@@ -36,10 +35,6 @@ def print_version():
         sys.version_info.major,
         sys.version_info.minor,
         sys.version_info.micro,
-    )
-    logger.info(
-        "dvo-extractor version: %s",
-        pkg_resources.get_distribution("dvo-extractor").version,
     )
 
 
