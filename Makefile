@@ -22,10 +22,6 @@ ruff: ## Run Ruff linter
 docs-style: ## Check documentation strings in all Python sources from this repository
 	pydocstyle .
 
-doc-check: ## Run gen_scenario_list.py to generate docs file and compare it to current one
-	python3 tools/gen_scenario_list.py > tmp.md
-	diff tmp.md docs/scenarios_list.md
-
 shellcheck: ## Run shellcheck
 	./shellcheck.sh
 
