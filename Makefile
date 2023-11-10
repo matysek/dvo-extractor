@@ -27,6 +27,15 @@ shellcheck: ## Run shellcheck
 
 before_commit: code-style update-scenarios ruff
 
+type-checks: ## Perform type checks for all sources
+	MYPYPATH=features/: mypy --explicit-package-bases dvo_extractor
+
+strict-type-checks: ## Strict type checks for all sources
+	MYPYPATH=features/: mypy --strict --explicit-package-bases dvo_extractor
+
+missing-types: ## Find all missing types in Python sources
+	MYPYPATH=features/: mypy --explicit-package-bases --disallow-untyped-calls --disallow-untyped-defs --disallow-incomplete-defs dvo_extractor
+
 help: ## Show this help screen
 	@echo 'Usage: make <OPTIONS> ... <TARGETS>'
 	@echo ''
