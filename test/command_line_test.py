@@ -41,7 +41,7 @@ def test_command_line_args_no_config_provided():
     """Verify app does not start if no config provided and exit with code 1."""
     with pytest.raises(SystemExit) as exception:
         sys.argv = ["dvo-extractor"]
-        command_line.insights_sha_extractor()
+        command_line.insights_dvo_extractor()
     assert exception.type == SystemExit
     assert exception.value.code == 1
 

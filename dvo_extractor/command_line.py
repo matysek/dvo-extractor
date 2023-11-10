@@ -38,7 +38,7 @@ def print_version() -> None:
     )
 
 
-def insights_sha_extractor() -> None:
+def insights_dvo_extractor() -> None:
     """Handle for dvo-extractor command."""
     args = parse_args()
 
