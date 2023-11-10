@@ -19,7 +19,7 @@ import logging
 import sys
 
 
-def parse_args():
+def parse_args() -> argparse.Namespace:
     """Parse the command line options and arguments."""
     parser = argparse.ArgumentParser()
     parser.add_argument("config", nargs="?", help="Application Configuration.")
@@ -27,7 +27,7 @@ def parse_args():
     return parser.parse_args()
 
 
-def print_version():
+def print_version() -> None:
     """Log version information."""
     logger = logging.getLogger(__name__)
     logger.info(
@@ -38,7 +38,7 @@ def print_version():
     )
 
 
-def insights_sha_extractor():
+def insights_sha_extractor() -> None:
     """Handle for dvo-extractor command."""
     args = parse_args()
 
