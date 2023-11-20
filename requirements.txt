@@ -3,18 +3,17 @@ attrs==23.1.0
 boto3==1.29.3
 botocore==1.32.3
 CacheControl==0.13.1
-ccx-messaging @ git+https://github.com/RedHatInsights/insights-ccx-messaging@53731de702eeeb6a72e7b9250b85ef6b69ddacab
+ccx-messaging @ git+https://github.com/RedHatInsights/insights-ccx-messaging@v3.4.2
 certifi==2023.11.17
 charset-normalizer==3.3.2
 confluent-kafka==2.3.0
 decorator==5.1.1
 defusedxml==0.7.1
-dvo-extractor @ file:///Users/papabakarycamara/Workplace/repos/forks/hub/ccx_repos/dvo-extractor
 filelock==3.13.1
 fsspec==2023.10.0
 idna==3.4
-insights-core==3.1.14
-insights-core-messaging @ git+https://github.com/RedHatInsights/insights-core-messaging@c6ec7f06333a34c0431acd145101157f77ee5355
+insights-core==3.2.23
+insights-core-messaging @ git+https://github.com/RedHatInsights/insights-core-messaging@1.2.2
 Jinja2==3.1.2
 jmespath==1.0.1
 jsonschema==4.20.0
@@ -35,6 +34,6 @@ rpds-py==0.13.0
 s3fs==0.4.2
 s3transfer==0.7.0
 six==1.16.0
-UNKNOWN @ file:///Users/papabakarycamara/Workplace/repos/forks/hub/ccx_repos/dvo-extractor
 urllib3==2.0.7
 watchtower==3.0.1
+.
