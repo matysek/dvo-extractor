@@ -26,7 +26,7 @@ def main():
     # Find all files in current directory and subdirectories with '*.py' extension.
     # Files are found recursivelly in all subdirectories as well.
     files = list(Path(".").rglob("*.py"))
-    files = [f for f in files if not str(f).startswith("venv/")]
+    files = [f for f in files if "venv/" not in str(f)]
     print("Files to check:")
     print("\n".join(str(f) for f in files))
     print("\nChecks:")
