@@ -17,8 +17,10 @@
 import argparse
 import logging
 import sys
+import os
 
 from app_common_python import isClowderEnabled
+from ccx_messaging.utils.clowder import apply_clowder_config
 from ccx_messaging.utils.logging import setup_watchtower
 from insights_messaging.appbuilder import AppBuilder
 
