@@ -18,6 +18,10 @@ import argparse
 import logging
 import sys
 
+from app_common_python import isClowderEnabled
+from ccx_messaging.utils.logging import setup_watchtower
+from insights_messaging.appbuilder import AppBuilder
+
 
 def parse_args() -> argparse.Namespace:
     """Parse the command line options and arguments."""
@@ -38,6 +42,22 @@ def print_version() -> None:
     )
 
 
+def apply_config(config):
+    """Apply configuration file provided as argument and run consumer."""
+    with open(config) as file_:
+        if isClowderEnabled() and os.getenv("CLOWDER_ENABLED") in ["True", "true", "1", "yes"]:
+            manifest = apply_clowder_config(file_.read())
+        else:
+            manifest = file_.read()
+        app_builder = AppBuilder(manifest)
+        logging_config = app_builder.service["logging"]
+        logging.config.dictConfig(logging_config)
+        print_version()
+        consumer = app_builder.build_app()
+        setup_watchtower(logging_config)
+        consumer.run()
+
+
 def insights_dvo_extractor() -> None:
     """Handle for dvo-extractor command."""
     args = parse_args()
@@ -47,4 +67,13 @@ def insights_dvo_extractor() -> None:
         print_version()
         sys.exit(0)
 
+    if args.config:
+        apply_config(args.config)
+        sys.exit(0)
+
+    logger = logging.getLogger(__name__)
+    logger.error(
+        "Application configuration not provided. \
+        Use 'ccx-data-pipeline <config>' to run the application",
+    )
     sys.exit(1)
