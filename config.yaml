@@ -34,6 +34,7 @@ service:
     kwargs:
       outgoing_topic: ${CDP_OUTGOING_TOPIC:archive-results}
       bootstrap_servers: ${CDP_PUBLISHER_SERVER:["10.34.129.172:9092"]}
+      compression: gzip
 
   logging:
     version: 1
