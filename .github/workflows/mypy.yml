@@ -8,4 +8,5 @@ jobs:
       - uses: jpetrucciani/mypy-check@master
         with:
             path: "dvo_extractor/"
+            mypy_flags: '--ignore-missing-imports'
             requirements_file: "requirements.txt"
