@@ -8,3 +8,4 @@ jobs:
       - uses: jpetrucciani/mypy-check@master
         with:
             path: "dvo_extractor/"
+            requirements_file: "requirements.txt"
