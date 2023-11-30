@@ -16,7 +16,7 @@
 
 import sys
 import pytest
-
+from unittest.mock import MagicMock, patch
 
 import dvo_extractor.command_line as command_line
 
@@ -62,3 +62,31 @@ def test_command_line_args_invalid_arg_provided(capsys):
         captured = capsys.readouterr()
         assert "usage: dvo-extractor" in captured.out
         assert "error: unrecognized arguments" in captured.out
+
+
+DEFAULT_LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers': {
+        '': {
+            'level': 'INFO',
+        },
+        'another.module': {
+            'level': 'DEBUG',
+        },
+    }
+}
+
+
+@patch('dvo_extractor.command_line.AppBuilder', autospec=True)
+def test_apply_config(mock_app_builder):
+    """Verify apply_config build the app using AppBuilder and runs it."""
+    consumer_mock = MagicMock()
+
+    app_builder_instance = mock_app_builder.return_value
+    app_builder_instance.build_app.return_value = consumer_mock
+    app_builder_instance.service = {"logging": DEFAULT_LOGGING}
+
+    command_line.apply_config("config-devel.yaml")
+    assert app_builder_instance.build_app.called
+    assert consumer_mock.run.called

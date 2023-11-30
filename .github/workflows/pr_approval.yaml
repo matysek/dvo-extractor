@@ -25,6 +25,7 @@ jobs:
       - run: pip install pycodestyle
       - run: pip install pydocstyle
       - run: pip install pytest-cov
+      - run: pip install -r requirements.txt
       - run: pip install --upgrade importlib-metadata
       - name: Style checks
         run: make style
