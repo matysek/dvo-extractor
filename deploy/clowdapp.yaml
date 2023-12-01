@@ -150,7 +150,7 @@ objects:
     config.yaml: |-
       plugins:
         packages:
-          - ccx_messaging
+          - ccx_rules_ocp.external.dvo
           - insights.specs.default
           - dvo_extractor
           - pythonjsonlogger
@@ -161,28 +161,34 @@ objects:
         format: insights.formats._json.JsonFormat
         target_components: []
         consumer:
-          name: ccx_messaging.consumers.kafka_consumer.KafkaConsumer
+          name: ccx_messaging.consumers.consumer.Consumer
           kwargs:
             incoming_topic: ${CDP_INCOMING_TOPIC}
             platform_service: ${CDP_PLATFORM_SERVICE}
             processing_timeout_s: 0
             dead_letter_queue_topic: ${CDP_DEAD_LETTER_QUEUE_TOPIC}
-            group.id: ${CDP_GROUP_ID}
-            bootstrap.servers: ${CDP_CONSUMER_SERVER}
-            max.poll.interval.ms: 600000
-            heartbeat.interval.ms: 10000
-            session.timeout.ms: 20000
+            group_id: ${CDP_GROUP_ID}
+            bootstrap_servers: ${CDP_CONSUMER_SERVER}
+            max_poll_records: 10
+            max_poll_interval_ms: 600000
+            heartbeat_interval_ms: 10000
+            session_timeout_ms: 20000
 
         downloader:
           name: ccx_messaging.downloaders.http_downloader.HTTPDownloader
           kwargs:
             max_archive_size: 100MiB
 
+        engine:
+          name: ccx_messaging.engines.dvo_extractor_engine.DVOExtractorEngine
+          kwargs:
+            extract_timeout: 10
+
         publisher:
           name: ccx_messaging.publishers.dvo_metrics_publisher.DVOMetricsPublisher
           kwargs:
             outgoing_topic: ${CDP_OUTGOING_TOPIC}
-            bootstrap.servers: ${CDP_PUBLISHER_SERVER}
+            bootstrap_servers: ${CDP_PUBLISHER_SERVER}
             compression: gzip
 
         watchers:
