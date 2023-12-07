@@ -15,8 +15,8 @@ service:
     kwargs:
       incoming_topic: ${CDP_INCOMING_TOPIC:platform.upload.buckit}
       platform_service: ${CDP_PLATFORM_SERVICE:openshift}
-      group_id: ${CDP_GROUP_ID:dvo_extractor_app}
-      bootstrap_servers: ${CDP_CONSUMER_SERVER:["10.34.129.172:9092"]}
+      group.id: ${CDP_GROUP_ID:dvo_extractor_app}
+      bootstrap.servers: ${CDP_CONSUMER_SERVER:["10.34.129.172:9092"]}
       processing_timeout_s: 0
       max.poll.interval.ms: 600000
       heartbeat.interval.ms: 10000
