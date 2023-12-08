@@ -14,6 +14,7 @@ service:
     name: ccx_messaging.consumers.kafka_consumer.KafkaConsumer
     kwargs:
       incoming_topic: ${CDP_INCOMING_TOPIC:platform.upload.buckit}
+      platform_service: ${CDP_PLATFORM_SERVICE:openshift}
       group.id: ${CDP_GROUP_ID:dvo_extractor_app}
       bootstrap.servers: ${CDP_CONSUMER_SERVER:["10.34.129.172:9092"]}
       processing_timeout_s: 0
