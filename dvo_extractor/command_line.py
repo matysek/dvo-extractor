@@ -23,6 +23,7 @@ from app_common_python import isClowderEnabled
 from ccx_messaging.utils.clowder import apply_clowder_config
 from ccx_messaging.utils.logging import setup_watchtower
 from insights_messaging.appbuilder import AppBuilder
+from ccx_messaging.utils.sentry import init_sentry
 
 
 def parse_args() -> argparse.Namespace:
@@ -68,6 +69,10 @@ def insights_dvo_extractor() -> None:
         logging.basicConfig(format="%(message)s", level=logging.INFO)
         print_version()
         sys.exit(0)
+
+    init_sentry(
+        os.environ.get("SENTRY_DSN", None), None, os.environ.get("SENTRY_ENVIRONMENT", None)
+    )
 
     if args.config:
         apply_config(args.config)
