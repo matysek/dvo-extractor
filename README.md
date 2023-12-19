@@ -21,7 +21,7 @@ NAMESPACE=$(bonfire namespace reserve)
 
 4. Deploy the clowdapp
 ```
-bonfire deploy -c deploy/test.yaml -n $NAMESPACE ccx-data-pipeline
+bonfire deploy -c deploy/test.yaml -n $NAMESPACE --component dvo-extractor ccx-data-pipeline
 ```
 
 5. Check the resource via CLI or UI.
