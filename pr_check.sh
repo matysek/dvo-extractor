@@ -16,12 +16,12 @@
 # --------------------------------------------
 # Options that must be configured by app owner
 # --------------------------------------------
-APP_NAME="ccx-data-pipeline"  # name of app-sre "application" folder this component lives in
-COMPONENT_NAME="dvo-extractor"
-IMAGE="quay.io/cloudservices/dvo-extractor"
-COMPONENTS="dvo-extractor"  # space-separated list of components to laod
-COMPONENTS_W_RESOURCES="dvo-extractor"  # component to keep
-CACHE_FROM_LATEST_IMAGE="true"
+export APP_NAME="ccx-data-pipeline"  # name of app-sre "application" folder this component lives in
+export COMPONENT_NAME="dvo-extractor"
+export IMAGE="quay.io/cloudservices/dvo-extractor"
+export COMPONENTS="dvo-extractor"  # space-separated list of components to laod
+export COMPONENTS_W_RESOURCES="dvo-extractor"  # component to keep
+export CACHE_FROM_LATEST_IMAGE="true"
 
 export IQE_PLUGINS="ccx"
 export IQE_MARKER_EXPRESSION=""
@@ -47,16 +47,16 @@ function create_junit_dummy_result() {
 }
 
 function build_image() {
-    source $CICD_ROOT/build.sh
+    source "$CICD_ROOT"/build.sh
 }
 
 function deploy_ephemeral() {
-    source $CICD_ROOT/deploy_ephemeral_env.sh
+    source "$CICD_ROOT"/deploy_ephemeral_env.sh
 }
 
 function run_smoke_tests() {
-    source $CICD_ROOT/cji_smoke_test.sh
-    source $CICD_ROOT/post_test_results.sh  # publish results in Ibutsu
+    source "$CICD_ROOT"/cji_smoke_test.sh
+    source "$CICD_ROOT"/post_test_results.sh  # publish results in Ibutsu
 }
 
 
