@@ -16,20 +16,26 @@
 # --------------------------------------------
 # Options that must be configured by app owner
 # --------------------------------------------
-export APP_NAME="ccx-data-pipeline"  # name of app-sre "application" folder this component lives in
-export COMPONENT_NAME="dvo-extractor"
-export IMAGE="quay.io/cloudservices/dvo-extractor"
-export COMPONENTS="dvo-extractor"  # space-separated list of components to laod
-export COMPONENTS_W_RESOURCES="dvo-extractor"  # component to keep
-export CACHE_FROM_LATEST_IMAGE="true"
+APP_NAME="ccx-data-pipeline"  # name of app-sre "application" folder this component lives in
+# TODO set it to "insights-stage" once we have dvo-writer/dvo-extractor stage deploy config
+# TODO set it back to "insights-production" once we have dvo deployed to prod
+REF_ENV="insights-ephemeral"
+COMPONENT_NAME="dvo-extractor"
+IMAGE="quay.io/cloudservices/dvo-extractor"
+COMPONENTS="ccx-data-pipeline ccx-insights-results ccx-redis dvo-writer dvo-extractor insights-content-service insights-results-smart-proxy ccx-mock-ams"  # space-separated list of components to laod
+COMPONENTS_W_RESOURCES="dvo-extractor"  # component to keep
+CACHE_FROM_LATEST_IMAGE="true"
+DEPLOY_FRONTENDS="false"
 
 export IQE_PLUGINS="ccx"
-export IQE_MARKER_EXPRESSION=""
-# There are no tests for this service yet, just checking deployability
-export IQE_FILTER_EXPRESSION="test_plugin_accessible"
+export IQE_MARKER_EXPRESSION="pipeline"
+export IQE_FILTER_EXPRESSION=""
 export IQE_REQUIREMENTS_PRIORITY=""
 export IQE_TEST_IMPORTANCE=""
 export IQE_CJI_TIMEOUT="30m"
+export IQE_SELENIUM="false"
+export IQE_ENV="ephemeral"
+export IQE_ENV_VARS="DYNACONF_USER_PROVIDER__rbac_enabled=false"
 
 function changes_including_ocp_rules_version() {
     git log -1 HEAD . | grep "Bumped ccx-rules-ocp version"
