@@ -30,6 +30,7 @@ export IQE_FILTER_EXPRESSION="test_plugin_accessible"
 export IQE_REQUIREMENTS_PRIORITY=""
 export IQE_TEST_IMPORTANCE=""
 export IQE_CJI_TIMEOUT="30m"
+export IQE_ENV_VARS="DYNACONF_USER_PROVIDER__rbac_enabled=false"
 
 function changes_including_ocp_rules_version() {
     git log -1 HEAD . | grep "Bumped ccx-rules-ocp version"
