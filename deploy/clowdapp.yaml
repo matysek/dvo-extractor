@@ -132,7 +132,7 @@ objects:
         partitions: 1
         topicName: ${CDP_DEAD_LETTER_QUEUE_TOPIC}
       - replicas: 3
-        partitions: 2
+        partitions: 1
         topicName: ${CDP_OUTGOING_TOPIC}
       - replicas: 3
         partitions: 1
@@ -263,7 +263,7 @@ parameters:
   value: platform.upload.announce
   required: true
 - name: CDP_OUTGOING_TOPIC
-  value: ccx.ocp.dvo
+  value: ccx.dvo.results
   required: true
 - name: CDP_DEAD_LETTER_QUEUE_TOPIC
   value: dvo.extractor.dead.letter.queue
