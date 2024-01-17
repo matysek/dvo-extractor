@@ -16,16 +16,16 @@
 # --------------------------------------------
 # Options that must be configured by app owner
 # --------------------------------------------
-APP_NAME="ccx-data-pipeline"  # name of app-sre "application" folder this component lives in
+export APP_NAME="ccx-data-pipeline"  # name of app-sre "application" folder this component lives in
 # TODO set it to "insights-stage" once we have dvo-writer/dvo-extractor stage deploy config
 # TODO set it back to "insights-production" once we have dvo deployed to prod
-REF_ENV="insights-stage"
-COMPONENT_NAME="dvo-extractor"
-IMAGE="quay.io/cloudservices/dvo-extractor"
-COMPONENTS="ccx-data-pipeline ccx-insights-results ccx-redis dvo-writer dvo-extractor insights-content-service insights-results-smart-proxy ccx-mock-ams"  # space-separated list of components to laod
-COMPONENTS_W_RESOURCES="dvo-extractor"  # component to keep
-CACHE_FROM_LATEST_IMAGE="true"
-DEPLOY_FRONTENDS="false"
+export REF_ENV="insights-stage"
+export COMPONENT_NAME="dvo-extractor"
+export IMAGE="quay.io/cloudservices/dvo-extractor"
+export COMPONENTS="ccx-data-pipeline ccx-insights-results ccx-redis dvo-writer dvo-extractor insights-content-service insights-results-smart-proxy ccx-mock-ams"  # space-separated list of components to laod
+export COMPONENTS_W_RESOURCES="dvo-extractor"  # component to keep
+export CACHE_FROM_LATEST_IMAGE="true"
+export DEPLOY_FRONTENDS="false"
 
 export IQE_PLUGINS="ccx"
 export IQE_MARKER_EXPRESSION="pipeline"
