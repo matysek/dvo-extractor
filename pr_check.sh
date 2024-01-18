@@ -22,13 +22,14 @@ export APP_NAME="ccx-data-pipeline"  # name of app-sre "application" folder this
 export REF_ENV="insights-stage"
 export COMPONENT_NAME="dvo-extractor"
 export IMAGE="quay.io/cloudservices/dvo-extractor"
-export COMPONENTS="ccx-data-pipeline ccx-insights-results ccx-redis dvo-writer dvo-extractor insights-content-service insights-results-smart-proxy ccx-mock-ams"  # space-separated list of components to laod
+export COMPONENTS="ccx-insights-results dvo-writer dvo-extractor insights-content-service insights-results-smart-proxy ccx-mock-ams"  # space-separated list of components to laod
 export COMPONENTS_W_RESOURCES="dvo-extractor"  # component to keep
 export CACHE_FROM_LATEST_IMAGE="true"
 export DEPLOY_FRONTENDS="false"
 
 export IQE_PLUGINS="ccx"
-export IQE_MARKER_EXPRESSION="pipeline"
+# Run only DVO specific tests (subset of `pipeline` marker).
+export IQE_MARKER_EXPRESSION="dvo"
 export IQE_FILTER_EXPRESSION=""
 export IQE_REQUIREMENTS_PRIORITY=""
 export IQE_TEST_IMPORTANCE=""
