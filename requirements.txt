@@ -3,4 +3,7 @@
 app-common-python==0.2.6
 ccx-messaging @ git+https://github.com/RedHatInsights/insights-ccx-messaging@v3.5.7
 insights-core-messaging @ git+https://github.com/RedHatInsights/insights-core-messaging@1.2.7
-ccx-rules-ocp==2023.11.22
+# TODO Revert back to only ccx-rules-ocp version once DVO rules are finished
+#ccx-rules-ocp==2023.11.22
+ccx-ocp-core @ git+https://gitlab.cee.redhat.com/ccx/ccx-ocp-core@master
+ccx-rules-ocp @ git+https://gitlab.cee.redhat.com/ccx/ccx-rules-ocpe@master
