@@ -197,6 +197,7 @@ objects:
             kwargs:
               bootstrap.servers: $KAFKA_BOOTSTRAP_URL
               topic: ${PAYLOAD_TRACKER_TOPIC}
+              service_name: dvo-extractor
 
         logging:
           version: 1
