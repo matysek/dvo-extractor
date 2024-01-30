@@ -99,6 +99,7 @@ objects:
             initialDelaySeconds: 20
             successThreshold: 1
             periodSeconds: 10
+            timeoutSeconds: 10
           livenessProbe:
             httpGet:
               path: /metrics
@@ -108,6 +109,7 @@ objects:
             successThreshold: 1
             failureThreshold: 1
             periodSeconds: 10
+            timeoutSeconds: 10
           startupProbe:
             httpGet:
               path: /metrics
@@ -118,6 +120,7 @@ objects:
             # Wait for 10x10 seconds
             failureThreshold: 10
             periodSeconds: 10
+            timeoutSeconds: 10
           volumeMounts:
             - mountPath: /data
               name: dvo-extractor-config
