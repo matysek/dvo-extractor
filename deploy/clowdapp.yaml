@@ -130,11 +130,11 @@ objects:
               name: dvo-extractor-config
           resources:
             requests:
-              cpu: 100m
-              memory: 256Mi
+              cpu: ${CPU_REQUEST}
+              memory: ${MEMORY_REQUEST}
             limits:
-              cpu: 200m
-              memory: 512Mi
+              cpu: ${CPU_LIMIT}
+              memory: ${MEMORY_LIMIT}
 
     kafkaTopics:
       - replicas: 16
@@ -303,3 +303,12 @@ parameters:
   required: true
 - name: CSE_LOG_STREAM
   value: "dvo-extractor"
+
+- name: CPU_LIMIT
+  value: 200m
+- name: MEMORY_LIMIT
+  value: 512Mi
+- name: CPU_REQUEST
+  value: 100m
+- name: MEMORY_REQUEST
+  value: 256Mi
