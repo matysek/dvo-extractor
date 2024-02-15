@@ -201,7 +201,7 @@ objects:
           - name: ccx_messaging.watchers.cluster_id_watcher.ClusterIdWatcher
           - name: ccx_messaging.watchers.payload_tracker_watcher.PayloadTrackerWatcher
             kwargs:
-              bootstrap.servers: $KAFKA_BOOTSTRAP_URL
+              bootstrap.servers: ${CDP_CONSUMER_SERVER}
               topic: ${PAYLOAD_TRACKER_TOPIC}
               service_name: dvo-extractor
 
