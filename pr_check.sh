@@ -28,9 +28,8 @@ export DEPLOY_FRONTENDS="false"
 export IQE_PLUGINS="ccx"
 # TODO uncomment the dvo marker when we have tests available and remove the iqe_filter_expression.
 # Run only DVO specific tests (subset of `pipeline` marker).
-#export IQE_MARKER_EXPRESSION="dvo"
-export IQE_MARKER_EXPRESSION=""
-export IQE_FILTER_EXPRESSION="test_plugin_accessible"
+export IQE_MARKER_EXPRESSION="dvo"
+export IQE_FILTER_EXPRESSION=""
 export IQE_REQUIREMENTS_PRIORITY=""
 export IQE_TEST_IMPORTANCE=""
 export IQE_CJI_TIMEOUT="30m"
