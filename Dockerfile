@@ -17,8 +17,8 @@ RUN microdnf install --nodocs -y python3.11 unzip tar git-core && \
     curl -ksL https://certs.corp.redhat.com/certs/2022-IT-Root-CA.pem -o /etc/pki/ca-trust/source/anchors/2022-IT-Root-CA.pem && \
     update-ca-trust && \
     pip install --no-cache-dir -U pip && \
-    pip install --no-cache-dir . && \
     pip install --no-cache-dir -r requirements.txt && \
+    pip install . && \
     microdnf remove -y git-core && \
     microdnf clean all && \
     rpm -e --nodeps sqlite-libs krb5-libs libxml2 readline pam openssh openssh-clients && \
@@ -29,4 +29,3 @@ RUN microdnf install --nodocs -y python3.11 unzip tar git-core && \
 USER 1001
 
 CMD ["sh", "-c", "dvo-extractor $CONFIG_PATH"]
-
