@@ -32,6 +32,8 @@ service:
       outgoing_topic: ${CDP_OUTGOING_TOPIC:ccx.ocp.results}
       bootstrap.servers: ${CDP_PUBLISHER_SERVER:["10.34.129.172:9092"]}
       compression: gzip
+  watchers:
+    - name: ccx_messaging.watchers.cluster_id_watcher.ClusterIdWatcher
 
   logging:
     version: 1
